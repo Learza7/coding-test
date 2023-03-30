@@ -36,10 +36,11 @@ export const MovieDetailsComponent: React.FC<MovieDetailsProps> = ({ movie, onCl
             <strong>Rating:</strong> {movie.imdbRating}{' '}
             <span className="rating-stars">{generateStarRating(parseFloat(movie.imdbRating))}</span>
           </p>
+
+
+          <p><strong>Plot:</strong> {movie.Plot}</p>
           <p><strong>Director:</strong> {movie.Director}</p>
           <p><strong>Actors:</strong> {movie.Actors}</p>
-          <p><strong>Awards:</strong> {movie.Awards}</p>
-          <p><strong>Plot:</strong> {movie.Plot}</p>
         </div>
       </div>
     </div>
