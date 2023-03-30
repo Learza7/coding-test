@@ -1,6 +1,6 @@
 import React from 'react';
 import { MovieDetails } from '../types';
-
+import '../styles/MovieDetails.css';
 interface MovieDetailsProps {
   movie: MovieDetails;
   onClose: () => void;

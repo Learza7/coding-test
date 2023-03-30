@@ -1,5 +1,6 @@
 import React from 'react';
 import { MovieSearchResult } from '../types';
+import '../styles/MovieList.css';
 
 interface MovieListProps {
   movies: MovieSearchResult[];
