@@ -14,6 +14,7 @@ const App: React.FC = () => {
   const [error, setError] = useState('');
 
   const handleSearch = async (query: string) => {
+    setSelectedMovie(null);
     setLoading(true);
     setError('');
     try {
