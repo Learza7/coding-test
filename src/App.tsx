@@ -1,5 +1,3 @@
-// src/App.tsx
-
 import React, { useState } from 'react';
 import { MovieSearchResult, MovieDetails } from './types';
 import { searchMovies, getMovieDetails } from './api_requests';
