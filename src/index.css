@@ -215,6 +215,7 @@ button:focus-visible {
   max-width: 100%;
   height: auto;
   border-radius: 5px;
+  object-fit: contain;
 }
 
 .movie-details h2 {
@@ -247,5 +248,18 @@ button:focus-visible {
 
   .search-input {
     margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: 600px) {
+  .movie-details img {
+    flex: 0 0 250px;
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
+  }
+  .movie-content{
+    flex-direction: column;
   }
 }
