@@ -69,21 +69,11 @@ button:focus-visible {
   }
 }
 
-/* styles.css */
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
-
-/* index.css */
 
 .app-title {
   font-size: 3.2em;
@@ -106,7 +96,7 @@ body {
 
 .search-input {
   flex-grow: 1;
-  border: 1px solid #646cff; /* Update this line */
+  border: 1px solid #646cff;
   border-radius: 5px 0 0 5px;
   padding: 5px 10px;
   font-size: 16px;
@@ -115,8 +105,8 @@ body {
 }
 
 .search-button {
-  background-color: #646cff; /* Update this line */
-  border: none; /* Update this line */
+  background-color: #646cff;
+  border: none;
   color: white;
   padding: 5px 15px;
   font-size: 16px;
@@ -130,7 +120,7 @@ body {
 }
 
 .search-button:hover {
-  background-color: #535bf2; /* Update this line */
+  background-color: #535bf2;
 }
 
 .movie-list {
@@ -142,8 +132,8 @@ body {
 .movie-item {
   display: flex;
   flex-direction: column;
-  background-color: #1a1a1a; /* Update this line */
-  border: 1px solid #646cff; /* Update this line */
+  background-color: #1a1a1a;
+  border: 1px solid #646cff;
   border-radius: 5px;
   padding: 10px;
   cursor: pointer;
@@ -164,7 +154,7 @@ body {
 
 .movie-year {
   font-size: 16px;
-  color: #cccccc; /* Update this line */
+  color: #cccccc;
 }
 
 .movie-poster {
@@ -173,8 +163,6 @@ body {
   margin-top: 10px;
   border-radius: 3px;
 }
-
-/* Responsive styles */
 
 @media (max-width: 767px) {
   .search-bar {
