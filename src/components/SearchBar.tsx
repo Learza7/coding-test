@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  loading: boolean;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ onSearch, loading }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -24,6 +25,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <button className="search-button" type="submit">
         Search
       </button>
+      {loading && <div className="loading-spinner">
+        <div></div>
+      </div>}
     </form>
   );
 };

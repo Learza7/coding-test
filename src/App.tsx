@@ -47,8 +47,7 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <h1 className='app-title'>Movie Search App</h1>
-      <SearchBar onSearch={handleSearch} />
-      {loading && <p>Loading...</p>}
+      <SearchBar onSearch={handleSearch} loading={loading} />
       {error && <p>Error: {error}</p>}
       {!selectedMovie && <MovieList movies={movies} onSelectMovie={handleSelectMovie} />}
       {selectedMovie && <MovieDetailsComponent movie={selectedMovie} onClose={handleCloseMovieDetails} />}
