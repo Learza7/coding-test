@@ -6,7 +6,7 @@ It allows users to search for movies and view their details using the Open Movie
 ### Installation
 
 1. Clone the repository
-2. Insall dependencies
+2. Install dependencies
   ```
   npm install
   ```
