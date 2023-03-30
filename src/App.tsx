@@ -1,34 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+// src/App.tsx
 
-function App() {
-  const [count, setCount] = useState(0)
+import React, { useState } from 'react';
+import { MovieSearchResult, MovieDetails } from './types';
+import { searchMovies, getMovieDetails } from './api_requests';
+import { SearchBar } from './components/SearchBar';
+import { MovieList } from './components/MovieList';
+import { MovieDetailsComponent } from './components/MovieDetails';
+
+const App: React.FC = () => {
+  const [movies, setMovies] = useState<MovieSearchResult[]>([]);
+  const [selectedMovie, setSelectedMovie] = useState<MovieDetails | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSearch = async (query: string) => {
+    setLoading(true);
+    setError('');
+    try {
+      const results = await searchMovies(query);
+      setMovies(results);
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSelectMovie = async (imdbID: string) => {
+    setLoading(true);
+    setError('');
+    try {
+      const movieDetails = await getMovieDetails(imdbID);
+      setSelectedMovie(movieDetails);
+    } catch (error: any) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleCloseMovieDetails = () => {
+    setSelectedMovie(null);
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="container">
+      <h1 className='app-title'>Movie Search App</h1>
+      <SearchBar onSearch={handleSearch} />
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {!selectedMovie && <MovieList movies={movies} onSelectMovie={handleSelectMovie} />}
+      {selectedMovie && <MovieDetailsComponent movie={selectedMovie} onClose={handleCloseMovieDetails} />}
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
